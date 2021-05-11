@@ -16,24 +16,24 @@
 <body>
     <div class="card">
         <div class="search">
-            <input type='text' class="search-bar">
-            <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.442 10.442a1 1 0 011.415 0l3.85 3.85a1 1 0 01-1.414 1.415l-3.85-3.85a1 1 0 010-1.415z" clip-rule="evenodd"></path><path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 100-11 5.5 5.5 0 000 11zM13 6.5a6.5 6.5 0 11-13 0 6.5 6.5 0 0113 0z" clip-rule="evenodd"></path></svg></button>
-            <button onclick="Myfuction()">enter</button>
+            <input type='text' class="search-bar" id="city_name">
+            <button onclick="getInputValue()">enter</button>
         </div>
         </div>
     </div>
    <div class="weather">
        <h2 class="city">Weather</h2>
-       <div class="temp">79°F</div>
+       <div id="temp"class="temp"></div>
        
    
    <script>
+        const city_name = document.querySelector('#city_name')
         function getInputValue(){
-        var enterButton = document.getElementById("theCity").value;
+        var enterButton = document.getElementById("city_name").value;
         var api = "http://api.openweathermap.org/data/2.5/weather?q="
         var key = "&appid=f7a8a0a2cfe49fa48ca6bb46dab9f362"
         var url = api+enterButton+key
-        fetch ("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appied=" + apiKey)
+        fetch (url)
         .then(response => response.json())
         .then(data =>{
             console.log(data)
@@ -45,6 +45,7 @@
             console.log(degF)
             let div = document.getElementById('temp');
             div.textContent = `${degF.toString()} F`
+            document.getElementById('city_name').value = ""
         })
         }
     </script>
