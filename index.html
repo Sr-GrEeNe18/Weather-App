@@ -25,13 +25,13 @@
        <h2 class="city">Weather</h2>
        <div id="temp"class="temp"></div>
        
-   
+   <script src="js/api.js"> </script>
    <script>
         const city_name = document.querySelector('#city_name')
         function getInputValue(){
         var enterButton = document.getElementById("city_name").value;
         var api = "http://api.openweathermap.org/data/2.5/weather?q="
-        var key = "&appid=f7a8a0a2cfe49fa48ca6bb46dab9f362"
+        
         var url = api+enterButton+key
         fetch (url)
         .then(response => response.json())
