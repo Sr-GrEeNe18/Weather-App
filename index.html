@@ -30,7 +30,7 @@
         const city_name = document.querySelector('#city_name')
         function getInputValue(){
         var enterButton = document.getElementById("city_name").value;
-        var api = "http://api.openweathermap.org/data/2.5/weather?q="
+        var api = "https://api.openweathermap.org/data/2.5/weather?q="
         
         var url = api+enterButton+key
         fetch (url)
